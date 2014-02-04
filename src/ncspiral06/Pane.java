@@ -1,5 +1,5 @@
 
-package ncspiral05;
+package ncspiral06;
 import java.awt.*;
 import javax.swing.*;
 

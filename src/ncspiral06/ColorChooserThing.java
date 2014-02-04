@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ncspiral05;
+package ncspiral06;
 import javax.swing.*;
 import java.awt.*;
 
