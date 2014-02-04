@@ -1,4 +1,3 @@
-
 package ncspiral05;
 
 import java.applet.*;
@@ -7,20 +6,20 @@ import javax.swing.*;
 
 /**
  *
- * @author Jaska
+ * @author Jaska Börner
  */
 public class NCSpiral05 extends Applet {
     
     int m_height, m_width;
-   /* 
-    public NCSpiral05() {
+   
+    /*public NCSpiral05() {
         Face face = new Face();
         this.add(face);
     }
     
     public void main (String[] args) {
         init();
-    } */
+    }*/
 
     @Override
     public void init() {

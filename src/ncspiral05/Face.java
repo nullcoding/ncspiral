@@ -1,19 +1,18 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @version 6
+ * Main class
+ * @author Jaska Börner
  */
 package ncspiral05;
 
 import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.event.*;
 
-/**
- *
- * @author Jaska
- */
 public class Face extends Applet {
     
     private JButton goButton, bgColBut, dotColBut;
@@ -26,8 +25,14 @@ public class Face extends Applet {
         m_width = getSize().width;
         m_height = getSize().height;
         this.add(makeControlPanel());
-        this.setName("NCSpiral 0.55");
+        this.setName("NCSpiral 0.6");
         System.out.println("Width: " + m_width + " Height: " + m_height);
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Face.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private JPanel makeControlPanel() {
@@ -37,7 +42,6 @@ public class Face extends Applet {
         JPanel choosePanel = new JPanel();
         choosePanel.setLayout(new GridLayout(2,2));
         JPanel paramPanel = new JPanel();
-       // paramPanel.setLayout(new GridLayout(1,3));
         goButton = new JButton("Generate!");
         goButton.setVerticalTextPosition(AbstractButton.CENTER);
         goButton.setHorizontalTextPosition(AbstractButton.LEADING);
@@ -95,6 +99,7 @@ public class Face extends Applet {
         @Override
     public void actionPerformed(ActionEvent e) {
         bgColBut.setBackground(getNewBackgroundColor());
+        bgColBut.repaint();
     }
     
     }   
@@ -104,6 +109,7 @@ public class Face extends Applet {
         @Override
     public void actionPerformed(ActionEvent e) {
         dotColBut.setBackground(getNewDotColor());
+        bgColBut.repaint();
     }
     
     }    
