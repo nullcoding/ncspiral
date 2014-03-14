@@ -1,11 +1,13 @@
 /**
  * @version 6
- * Main class
+ * Main form
  * @author Jaska Börner
+ * 28 Jan 2014
+ * Last updated: 14 March 2014
  */
 package ncspiral06;
 
-import java.applet.*;
+//import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
@@ -20,7 +22,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.filechooser.FileSystemView;
 
-public class Face extends Applet {
+public class Face extends JFrame {
     
     private JButton goButton, bgColBut, dotColBut, sshotBut;
     private JTextField SizeInput;
@@ -30,8 +32,23 @@ public class Face extends Applet {
     private FileSystemView fsv;
     private File dir;
     private Pane pane;
-    int m_height, m_width;
+    //int m_height, m_width;
     
+    public Face() {
+        //m_width = getSize().width;
+        //m_height = getSize().height;
+        //System.out.println("Width: " + m_width + " Height: " + m_height);
+        this.setSize(450, 200);
+        this.add(makeControlPanel());
+        this.setName("NCSpiral 0.6");
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Face.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    /**
     @Override
     public void init() {
         m_width = getSize().width;
@@ -46,7 +63,7 @@ public class Face extends Applet {
             Logger.getLogger(Face.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    */
     private JPanel makeControlPanel() {
         
         JPanel controlPanel = new JPanel();
@@ -126,6 +143,7 @@ public class Face extends Applet {
         l1.setForeground(newbg);
         bgColBut.setText("Change...");
         bgColBut.setForeground(newbg);
+        bgColBut.setBackground(newbg);
         bgColBut.repaint();
         } 
     }   
@@ -137,6 +155,7 @@ public class Face extends Applet {
         l2.setForeground(newdc);
         dotColBut.setText("Change...");
         dotColBut.setForeground(newdc);
+        dotColBut.setBackground(newdc);
         bgColBut.repaint();
         }
     }    
